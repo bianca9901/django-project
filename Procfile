@@ -1,2 +1,2 @@
 web: node index.js
-web: gunicorn PROJ_NAME.wsgi
+web: gunicorn project_restaurant.wsgi
