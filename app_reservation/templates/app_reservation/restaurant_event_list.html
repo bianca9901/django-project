@@ -1,0 +1,32 @@
+{% extends 'app_reservation/base.html' %}
+
+{% block content %}
+
+</br>
+<h1> Events </h1>
+</br>
+
+{% for restaurant_event in event_list %}
+
+
+<div class="card">
+    <div class="card-header">
+        {{ restaurant_event }}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ restaurant_event.event_date }}</h5><br/>
+        <p class="card-text">
+            <strong><li>Description:</strong> {{ restaurant_event.description }}</li><br/><br/>
+
+            <strong><li>Attendees:</strong>
+                {% for restaurant_user in restaurant_event.attendees.all %}</br>
+                {{ restaurant_user }}</br>
+                {% endfor %}
+            </li>
+        </p><br/> 
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

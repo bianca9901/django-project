@@ -4,3 +4,4 @@ from .models import restaurant_user
 
 admin.site.register(restaurant_event)
 admin.site.register(restaurant_user)
+
