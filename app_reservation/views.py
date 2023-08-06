@@ -5,7 +5,7 @@ from datetime import datetime
 from .models import restaurant_event
 
 def all_events(request): 
-    event_list = restaurant_event.objects.all()
+    event_list = restaurant_event.objects.all().order_by('event_date')
     return render(request, 'app_reservation/restaurant_event_list.html',
     {'event_list': event_list})
 
