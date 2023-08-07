@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=100, verbose_name='Event Name')),
                 ('event_date', models.DateTimeField(verbose_name='Event Date')),
                 ('description', models.TextField(blank=True)),
-                ('attendees', models.ManyToManyField(blank=True, to='app_reservation.restaurant_user')),
+                ('attendees', models.ManyToManyField(blank=True, to='app_restaurant.restaurant_user')),
             ],
         ),
     ]
