@@ -17,14 +17,7 @@
         <h5 class="card-title">{{ restaurant_event.event_date }}</h5><br/>
         <p class="card-text">
             <strong><li>Description:</strong> {{ restaurant_event.description }}</li><br/><br/>
-
-            <strong><li>Attendees:</strong>
-                {% for restaurant_user in restaurant_event.attendees.all %}</br>
-                {{ restaurant_user }}</br>
-                {% endfor %}
-            </li>
-        </p><br/> 
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="#" class="btn btn-primary">Join The Fun</a>
     </div>
 </div>
 {% endfor %}
