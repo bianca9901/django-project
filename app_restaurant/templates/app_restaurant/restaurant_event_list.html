@@ -7,17 +7,15 @@
 </br>
 
 {% for restaurant_event in event_list %}
-
-
 <div class="card">
     <div class="card-header">
         {{ restaurant_event }}
     </div>
     <div class="card-body">
-        <h5 class="card-title">{{ restaurant_event.event_date }}</h5><br/>
+        <h5 class="card-title">{{ restaurant_event.event_date }}</h5><br />
         <p class="card-text">
-            <strong><li>Description:</strong> {{ restaurant_event.description }}</li><br/><br/>
-        <a href="#" class="btn btn-primary">Join The Fun</a>
+            <strong>Description:</strong> {{ restaurant_event.description }}</li><br /><br />
+            <a href="{% url 'make_reservation' restaurant_event.id %}" class="btn btn-primary">Join The Fun</a>
     </div>
 </div>
 {% endfor %}

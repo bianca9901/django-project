@@ -1,0 +1,15 @@
+{% extends 'app_restaurant/base.html' %}
+
+{% block content %}
+
+<h1>Make a Reservation</h1>
+
+<p>Event: {{ selected_event.name }}</p>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit Reservation</button>
+</form>
+
+{% endblock %}
