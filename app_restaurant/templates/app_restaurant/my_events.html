@@ -2,7 +2,16 @@
 
 {% block content %}
 
-<h1>Your Upcomming Events</h1>
+<h1>My Events</h1>
 
+{% if events %}
+<ul>
+    {% for event in events %}
+    <li>{{ event.name }} - {{event.event_date }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>You have no events.</p>
+{% endif %}
 
 {% endblock %}
