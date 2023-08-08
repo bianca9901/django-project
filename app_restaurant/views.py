@@ -39,3 +39,8 @@ def reservation_form(request, event_id):
         form = ReservationForm()
 
     return render(request, 'app_restaurant/reservation_form.html', {'selected_event': selected_event, 'form': form})
+
+#My Events Page
+@login_required(login_url='login')
+def my_events(request):
+    return render(request, 'app_restaurant/my_events.html', {'events': events})
