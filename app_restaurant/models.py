@@ -7,6 +7,7 @@ class restaurant_event(models.Model):
     event_date = models.DateTimeField('Event Date')
     employee = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     description = models.TextField(blank=True)
+    available_spots = models.PositiveIntegerField(default=30)
 
     def __str__(self):
         return self.name
