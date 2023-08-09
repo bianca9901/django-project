@@ -12,8 +12,9 @@ def home(request):
 #Events page
 def all_events(request): 
     event_list = restaurant_event.objects.all().order_by('event_date')
-    return render(request, 'app_restaurant/restaurant_event_list.html',
-    {'event_list': event_list})
+    for event in event_list:
+        event.available_spots = event.calculate_available_spots
+    return render(request, 'app_restaurant/restaurant_event_list.html', {'event_list': event_list})
 
 
 # Reservation
@@ -33,17 +34,15 @@ def reservation_form(request, event_id):
             reservation.event = selected_event
             reservation.user = request.user
 
-            total_spots_needed = reservation.num_friends + 1
+            total_spots_needed = reservation.num_friends +1
 
-            remaining_spots = selected_event.available_spots - total_spots_needed
-
-            if remaining_spots >= 0:
+            if selected_event.calculate_available_spots >= total_spots_needed:
                 reservation.save()
-                selected_event.available_spots = remaining_spots
+                selected_event.available_spots -= total_spots_needed
                 selected_event.save()
 
                 messages.success(request, 'Reservation successfully submitted!')
-                return redirect('my_events')
+                return redirect('list-events')
             else:
                 messages.error(request, 'Sorry, there are no more available spots for this event.')
                 return redirect('list-events')
@@ -52,6 +51,7 @@ def reservation_form(request, event_id):
         form = ReservationForm()
 
     return render(request, 'app_restaurant/reservation_form.html', {'selected_event': selected_event, 'form': form})
+
 
 
 #My Events Page
