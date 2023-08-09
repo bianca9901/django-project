@@ -21,6 +21,7 @@ def all_events(request):
 def make_reservation(request, event_id):
     return redirect('reservation_form', event_id=event_id)
 
+
 @login_required(login_url='login')
 def reservation_form(request, event_id):
     selected_event = get_object_or_404(restaurant_event, pk=event_id)
@@ -31,14 +32,27 @@ def reservation_form(request, event_id):
             reservation = form.save(commit=False)
             reservation.event = selected_event
             reservation.user = request.user
-            reservation.save()
-            messages.success(request, 'Reservation successfully submitted!')
-            return redirect('list-events')
+
+            total_spots_needed = reservation.num_friends + 1
+
+            remaining_spots = selected_event.available_spots - total_spots_needed
+
+            if remaining_spots >= 0:
+                reservation.save()
+                selected_event.available_spots = remaining_spots
+                selected_event.save()
+
+                messages.success(request, 'Reservation successfully submitted!')
+                return redirect('my_events')
+            else:
+                messages.error(request, 'Sorry, there are no more available spots for this event.')
+                return redirect('list-events')
 
     else:
         form = ReservationForm()
 
     return render(request, 'app_restaurant/reservation_form.html', {'selected_event': selected_event, 'form': form})
+
 
 #My Events Page
 @login_required(login_url='login')
