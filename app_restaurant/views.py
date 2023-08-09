@@ -26,6 +26,13 @@ def make_reservation(request, event_id):
 @login_required(login_url='login')
 def reservation_form(request, event_id):
     selected_event = get_object_or_404(restaurant_event, pk=event_id)
+    user = request.user
+    
+    existing_reservation = restaurant_reservation.objects.filter(user=user, event=selected_event).first()
+
+    if existing_reservation:
+        messages.info(request, 'You have already reserved your spot for this event!')
+        return redirect('my_events')
 
     if request.method == 'POST':
         form = ReservationForm(request.POST)
