@@ -44,7 +44,7 @@ def reservation_form(request, event_id):
 @login_required(login_url='login')
 def my_events(request):
     user = request.user
-    user_reservations = restaurant_reservation.objects.filter(user=user)
-    events = [reservation.event for reservation in user_reservations]
-    
+    user_reservations = restaurant_reservation.objects.filter(user=user).select_related('event')
+    events = [{'event': reservation.event, 'reservation': reservation} for reservation in user_reservations]
+
     return render(request, 'app_restaurant/my_events.html', {'events': events})
