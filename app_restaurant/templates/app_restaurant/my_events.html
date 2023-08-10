@@ -11,8 +11,11 @@
         <div class="card-body">
             <h5 class="card-title">{{ event_data.event.name }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{ event_data.event.event_date }}</h6>
-            <p class="card-text">You are bringing {{ event_data.reservation.num_friends }} friend(s).</p>
-            <a href="{% url 'reservation_form' event_data.event.id %}" class="btn btn-primary">Modify Reservation</a>
+            <p class="card-text">You are bringing {{ event_data.reservation.number_of_friends }} friend(s).</p>
+            <form method="post" action="{% url 'cancel_reservation' event_data.reservation.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Cancel Reservation</button>
+            </form>
         </div>
     </div>
     {% endfor %}
@@ -22,4 +25,3 @@
 {% endif %}
 
 {% endblock %}
-
