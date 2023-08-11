@@ -5,6 +5,7 @@
 <h1>Make a Reservation</h1>
 
 <p>Event: {{ selected_event.name }}</p>
+<p>Available Spots: {{ event.available_spots }}</p> #THIS DOES NOT WORK ATM FIX LATER ! IT IS IMPORTANT ESPECIALLY FOR EDITED RESERVATIONS BECUASE THEY ARE IMMEDIATLY REDIRECTED AND WONT BE ABLE TO SEE HOW MANY AVAILABLE SPOTS THERE ARE LEFT.
 
 <form method="post">
     {% csrf_token %}

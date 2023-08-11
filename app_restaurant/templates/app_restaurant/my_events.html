@@ -16,6 +16,10 @@
                 {% csrf_token %}
                 <button type="submit" class="btn btn-primary">Cancel Reservation</button>
             </form>
+            <form method="post" action="{% url 'edit_reservation' event_data.reservation.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Edit Reservation</button>
+            </form>
         </div>
     </div>
     {% endfor %}

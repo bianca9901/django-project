@@ -69,11 +69,27 @@ def cancel_reservation(request, reservation_id):
     selected_event = reservation.event
 
     if request.method == 'POST':
-        total_spots_needed = reservation.number_of_friends + 1
-        selected_event.available_spots += total_spots_needed
+        total_spots_freed = reservation.number_of_friends + 1
+        selected_event.available_spots += total_spots_freed
         selected_event.save()
         reservation.delete()
         messages.success(request, 'Your reservation was canceled!')
         return redirect('my_events')
 
+    return render(request, 'app_restaurant/my_events.html', {'selected_event': selected_event})
+
+@login_required(login_url='login')
+#Edit reservation logic
+def edit_reservation(request, reservation_id):
+    reservation = get_object_or_404(restaurant_reservation, pk=reservation_id, user=request.user)
+    selected_event = reservation.event
+
+    if request.method == 'POST':
+        total_spots_freed = reservation.number_of_friends + 1
+        selected_event.available_spots += total_spots_freed
+        selected_event.save()
+        reservation.delete()
+        messages.success(request, 'Your reservation was canceled. You can now make a new reservation.')
+        return redirect('reservation_form', event_id=selected_event.id) 
+#ADD SOMETHING HERE SO THAT THE USER IS REDIRECTED TO MY EVENTS AND NOT EVENTS LIST AFTER SUBMITING THEIR EDITED RESERVATION.
     return render(request, 'app_restaurant/my_events.html', {'selected_event': selected_event})
