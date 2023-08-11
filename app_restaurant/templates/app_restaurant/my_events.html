@@ -20,6 +20,7 @@
                 {% csrf_token %}
                 <button type="submit" class="btn btn-primary">Edit Reservation</button>
             </form>
+            <p>Important Note: If you choose to edit your reservation, your current reservation will be automatically canceled. Additionally, please be aware that if you intend to invite more friends than your initial booking, there might not be enough available spots to accommodate the change.</p>
         </div>
     </div>
     {% endfor %}
