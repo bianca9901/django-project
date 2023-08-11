@@ -5,7 +5,6 @@
 <h1>My Events</h1>
 
 {% if events %}
-<div class="card-deck">
     {% for event_data in events %}
     <div class="card mb-4">
         <div class="card-body">
@@ -14,17 +13,21 @@
             <p class="card-text">You are bringing {{ event_data.reservation.number_of_friends }} friend(s).</p>
             <form method="post" action="{% url 'cancel_reservation' event_data.reservation.id %}">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-primary">Cancel Reservation</button>
+                <button type="submit" class="btn btn-danger">Cancel Reservation</button>
             </form>
+            <br/>
             <form method="post" action="{% url 'edit_reservation' event_data.reservation.id %}">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-primary">Edit Reservation</button>
             </form>
-            <p>Important Note: If you choose to edit your reservation, your current reservation will be automatically canceled. Additionally, please be aware that if you intend to invite more friends than your initial booking, there might not be enough available spots to accommodate the change.</p>
+            <br/>
+            <p>Important Note: If you choose to edit your reservation, your current reservation automatically
+                will be canceled. Additionally, please be aware that if you intend to invite more friends than
+                your initial booking, there might not be enough available spots to accommodate the change.</p>
         </div>
     </div>
     {% endfor %}
-</div>
+    
 {% else %}
 <p>You have no events.</p>
 {% endif %}
