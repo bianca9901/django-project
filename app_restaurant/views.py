@@ -15,7 +15,9 @@ def all_events(request):
     event_list = restaurant_event.objects.all().order_by('event_date')
     for event in event_list:
         event.available_spots
-    return render(request, 'app_restaurant/restaurant_event_list.html', {'event_list': event_list})
+    pictures = restaurant_event.objects.all()
+    context = {'pictures': pictures, 'event_list': event_list}
+    return render(request, 'app_restaurant/restaurant_event_list.html', context)
 
 @login_required(login_url='login')
 #Reservation form page

@@ -15,6 +15,12 @@
     <p class="card-text">Date: {{ event.event_date }}</p>
     <p class="card-text">Available Spots: {{ event.available_spots }}</p>
     <p class="card-text">{{ event.description }}</p>
+
+    {% if event.image %}
+    <img src="{{ event.image.url }}" alt="{{ event.name }}" class="img-fluid">
+    {% endif %}
+    
+    <br/><br/><br/>
     <a href="{% url 'make_reservation' event.id %}" class="btn btn-success">Join The Fun!</a>
 </div>
 </div>
