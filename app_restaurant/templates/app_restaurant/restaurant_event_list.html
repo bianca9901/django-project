@@ -6,14 +6,15 @@
 <h1> Events </h1>
 </br>
 
+
 <div class="row">
 {% for event in event_list %}
 <div class="col-md-4 mb-4">
     <div class="card">
     <div class="card-body">
     <h5 class="card-title">{{ event.name }}</h5>
-    <p class="card-text">Date: {{ event.event_date }}</p>
-    <p class="card-text">Available Spots: {{ event.available_spots }}</p>
+    <p class="card-text">Date: <span class="custom-color-gold">{{ event.event_date }}</span></p>
+    <p class="card-text">Available Spots: <span class="custom-color-gold">{{ event.available_spots }}</span></p>
     <p class="card-text">{{ event.description }}</p>
 
     {% if event.image %}
