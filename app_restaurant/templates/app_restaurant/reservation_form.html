@@ -5,15 +5,15 @@
 <h2>Make a Reservation</h2>
 
 <div class="card mb-4">
-<div class="card-body">
-<h5 class="card-title">Event: {{ selected_event.name }}</h5>
-<p class="card-text">Available Spots: {{ selected_event.available_spots }}</p>
+    <div class="card-body">
+        <h5 class="card-title">Event: {{ selected_event.name }}</h5>
+        <p class="card-text">Available Spots: {{ selected_event.available_spots }}</p>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-success">Submit</button>
-</form>
-</div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
 </div>
 {% endblock %}

@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from .models import restaurant_event, restaurant_reservation
 from .forms import ReservationForm
 
-
 """
 Home page:
 Functionality: Displays home page.
@@ -22,6 +21,16 @@ Returns: Menu template.
 @login_required(login_url='login')
 def menu(request):
     return render(request, 'app_restaurant/menu.html', {})
+
+
+"""
+About us page:
+Functionality: Displays about us page.
+Returns: About us template.
+"""
+@login_required(login_url='login')
+def about_us(request):
+    return render(request, 'app_restaurant/about_us.html', {})
 
 
 """
@@ -164,6 +173,5 @@ def edit_reservation(request, reservation_id):
         selected_event.save()
         reservation.delete()
         messages.success(request, 'Your reservation was canceled. You can now make a new reservation.')
-        return redirect('reservation_form', event_id=selected_event.id) 
-#ADD SOMETHING HERE SO THAT THE USER IS REDIRECTED TO MY EVENTS AND NOT EVENTS LIST AFTER SUBMITING THEIR EDITED RESERVATION.
+        return redirect('reservation_form', event_id=selected_event.id)
     return render(request, 'app_restaurant/my_events.html', {'selected_event': selected_event})
