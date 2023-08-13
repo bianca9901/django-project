@@ -15,6 +15,16 @@ def home(request):
 
 
 """
+Menu page:
+Functionality: Displays menu page.
+Returns: Menu template.
+"""
+@login_required(login_url='login')
+def menu(request):
+    return render(request, 'app_restaurant/menu.html', {})
+
+
+"""
 Events list page:
 Functionality:
 - Retrieves events and pictures that was made by the staff in the Admin Dashboard.

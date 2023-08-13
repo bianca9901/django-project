@@ -7,7 +7,7 @@ class ReservationInline(admin.TabularInline):
 
 @admin.register(restaurant_event)
 class EventAdmin(admin.ModelAdmin):
-    fields = ('name', 'event_date', 'description', 'image')
+    fields = ('name', 'event_date', 'available_spots', 'description', 'image')
     list_display = ('name', 'event_date')
     list_filter = ('event_date',)
     ordering = ('-event_date',)
