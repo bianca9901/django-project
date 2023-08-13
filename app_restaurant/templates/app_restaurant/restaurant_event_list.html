@@ -1,9 +1,13 @@
 {% extends 'app_restaurant/base.html' %}
 
 {% block content %}
-
 </br>
-<h1> Events </h1>
+<h2> Events </h2>
+<p> We have a talented lineup of musicians, spanning 
+    various styles, that are here to both entertain and move you.
+</p>
+<p> We also offer different activities for you to partake in. Each week at Django is different,
+    from lively karaoke sessions to spirited rounds of beer pong. Take a look and Join!</p>
 </br>
 
 
@@ -22,7 +26,9 @@
     {% endif %}
     
     <br/><br/><br/>
+    <div class="join-btn">
     <a href="{% url 'make_reservation' event.id %}" class="btn btn-success">Join The Fun!</a>
+    </div>
 </div>
 </div>
 </div>

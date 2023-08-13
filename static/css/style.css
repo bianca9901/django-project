@@ -1,26 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Open+Sans:ital,wght@1,700&family=Zeyada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Open+Sans:ital,wght@1,500;1,700&family=Zeyada&display=swap');
 
 body{
     
 }
 
 h1 {
-    font-family: caveat;
+    font-family: 'Caveat', cursive;
     font-size: 80px;
     text-align: center;
 }
 
-h2,
+h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 60px;
+    text-align: center;
+}
+
 h3,
 h4,h5 {
-    font-family: caveat;
-    font-size: 50px;
+    font-family: 'Caveat', cursive;
+    font-size: 40px;
     text-align: center;
     margin-bottom: 30px;
 }
 
 p {
-    font-family: open sans;
+    font-family: 'Open Sans', sans-serif;
     font-size: 20px;
 }
 
@@ -29,14 +34,19 @@ p {
     color:gray;
 }
 
+.custom-text {
+    font-family: 'Zeyada', cursive;
+    font-size: 60px;
+}
+
 /* Navbar */
 .logo {
-    font-family: Zeyada, cursive;
+    font-family: 'Zeyada', cursive;
     font-size: 60px;
 }
 
 .nav-item {
-    font-family: caveat;
+    font-family: 'Caveat', cursive;
     font-size: 30px;
     margin: 15px;
 }
@@ -96,11 +106,14 @@ p {
 /* About us section home page */
 .about-us-p {
     font-size: 25px;
+    font-family: open sans;
+    font-weight: 500;
+    line-height: 1.5;
 }
 
 /* Buttons */
 .btn {
-    font-size: 30px;
+    font-size: 24px;
     font-family: caveat;
 }
 
@@ -114,6 +127,11 @@ p {
     font-size: 20px;
     color: black;
     padding: 15px 25px;
+}
+
+.join-btn {
+    display: flex;
+    justify-content: center;
 }
 
 /* Menu page */
@@ -149,7 +167,7 @@ footer {
 }
 
 .footer-p {
-    font-family: caveat;
+    font-family: 'Caveat', cursive;
     font-size: 20px;
 }
 

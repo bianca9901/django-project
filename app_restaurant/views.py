@@ -5,25 +5,26 @@ from .models import restaurant_event, restaurant_reservation
 from .forms import ReservationForm
 
 
-@login_required(login_url='login')
-"""Home page:
-Functionality: Displays home page.
-Returns: 
 """
+Home page:
+Functionality: Displays home page.
+Returns: Home template. """
+@login_required(login_url='login')
 def home(request):
     return render(request, 'app_restaurant/home.html', {})
 
 
-@login_required(login_url='login')
-"""Events list page:
+"""
+Events list page:
 Functionality:
 - Retrieves events and pictures that was made by the staff in the Admin Dashboard.
 How it works:
 - Queries the database for all restaurant events.
 - Retrieves event detials, including available spots.
-Returns: Rendered event list template.
-"""
+Returns: Rendered event list template. """
+@login_required(login_url='login')
 def all_events(request):
+
     event_list = restaurant_event.objects.all().order_by('event_date')
     for event in event_list:
         event.available_spots
@@ -32,20 +33,21 @@ def all_events(request):
     return render(request, 'app_restaurant/restaurant_event_list.html', context)
 
 
-@login_required(login_url='login')
-"""Reservation form (general):
+"""
+Reservation form (general):
 Functionality:
 - Redirects user to the reservation form for a specific event.
 How it works:
 -Retrieves event ID from the url.
-Returns: redirects user to the reservation_form template.
-"""
+Returns: redirects user to the reservation_form template."""
+@login_required(login_url='login')
+
 def make_reservation(request, event_id):
     return redirect('reservation_form', event_id=event_id)
 
 
-@login_required(login_url='login')
-"""Reservation form (logic):
+"""
+Reservation form (logic):
 Functionality:
 - Handles the logic for making a reservation for a specific event.
 How it works:
@@ -56,8 +58,8 @@ How it works:
   2. New reservation is created.
   3. Checks if there are available spots for this event.
   4. If available spots: reservation is saved, if not, a message displays.
-Returns: rendered reservation form template.
-"""
+Returns: rendered reservation form template."""
+@login_required(login_url='login')
 def reservation_form(request, event_id):
     selected_event = get_object_or_404(restaurant_event, pk=event_id)
     user = request.user
@@ -90,21 +92,19 @@ def reservation_form(request, event_id):
     return render(request, 'app_restaurant/reservation_form.html', {'selected_event': selected_event, 'form': form})
 
 
-@login_required(login_url='login')
 """
 My Events page (General)
 Functionality:
 - Displays events reserved by the currently logged in user.
 - How it works: Retrieves reservations made by the user and events' details.
-Returns: Rendered my Events template.
-"""
+Returns: Rendered my Events template."""
+@login_required(login_url='login')
 def my_events(request):
     user_reservations = restaurant_reservation.objects.filter(user=request.user).select_related('event')
     events = [{'event': reservation.event, 'reservation': reservation} for reservation in user_reservations]
     return render(request, 'app_restaurant/my_events.html', {'events': events})
 
 
-@login_required(login_url='login')
 """
 My Events page (Cancel):
 Functionality:
@@ -114,8 +114,8 @@ Functionality:
 - User gets notified with message.
 How it works: Variables saving the reservation details, such as username that made booking gets deleted.
 And number of friends + user total is restored to available spots sum.
-Returns: Rendered my Events template.
-"""
+Returns: Rendered my Events template."""
+@login_required(login_url='login')
 def cancel_reservation(request, reservation_id):
     reservation = get_object_or_404(restaurant_reservation, pk=reservation_id, user=request.user)
     selected_event = reservation.event
@@ -131,7 +131,6 @@ def cancel_reservation(request, reservation_id):
     return render(request, 'app_restaurant/my_events.html', {'selected_event': selected_event})
 
 
-@login_required(login_url='login')
 """
 My Events page (Edit):
 Functionality:
@@ -143,8 +142,8 @@ Functionality:
 How it works: Variables saving the reservation details, such as username that made booking gets deleted.
 And number of friends + user total is restored to available spots sum. The event id is used to redirect
 user to the particular event they wanted to make a updated decision on reservation details for.
-Returns: Rendered my Events template.
-"""
+Returns: Rendered my Events template."""
+@login_required(login_url='login')
 def edit_reservation(request, reservation_id):
     reservation = get_object_or_404(restaurant_reservation, pk=reservation_id, user=request.user)
     selected_event = reservation.event
