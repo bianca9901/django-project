@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import restaurant_event, restaurant_reservation
 
+
 class ReservationInline(admin.TabularInline):
     model = restaurant_reservation
     extra = 0
@@ -11,4 +12,5 @@ class EventAdmin(admin.ModelAdmin):
     list_display = ('name', 'event_date')
     list_filter = ('event_date',)
     ordering = ('-event_date',)
+    summernote_fields = ('description',)
     inlines = [ReservationInline]
