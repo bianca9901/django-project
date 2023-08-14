@@ -96,10 +96,10 @@ def reservation_form(request, event_id):
                 selected_event.available_spots -= total_spots_needed
                 selected_event.save()
                 messages.success(request, 'Reservation successfully submitted!')
-                return redirect('list-events')
+                return redirect('list_events')
             else:
                 messages.error(request, 'Sorry, there are no more available spots for this event.')
-                return redirect('list-events')
+                return redirect('list_events')
     else:
         form = ReservationForm()
 
