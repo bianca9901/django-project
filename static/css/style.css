@@ -87,6 +87,7 @@ p {
     font-size: 20px;
     color: black;
     padding: 15px 25px;
+    margin: 20px;
 }
 
 .join-btn {
@@ -178,7 +179,7 @@ ul {
         font-size: 18px;
     }
     .account-btn {
-        padding: 5px;
+        padding: 10px 15px;
         align-content: center;
     }
     .carousel-item {
