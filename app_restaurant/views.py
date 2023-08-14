@@ -4,11 +4,11 @@ from django.contrib.auth.decorators import login_required
 from .models import restaurant_event, restaurant_reservation
 from .forms import ReservationForm
 
+
 """
 Home page:
 Functionality: Displays home page.
 Returns: Home template. """
-@login_required(login_url='login')
 def home(request):
     return render(request, 'app_restaurant/home.html', {})
 
@@ -18,7 +18,6 @@ Menu page:
 Functionality: Displays menu page.
 Returns: Menu template.
 """
-@login_required(login_url='login')
 def menu(request):
     return render(request, 'app_restaurant/menu.html', {})
 
@@ -28,7 +27,6 @@ About us page:
 Functionality: Displays about us page.
 Returns: About us template.
 """
-@login_required(login_url='login')
 def about_us(request):
     return render(request, 'app_restaurant/about_us.html', {})
 
@@ -41,9 +39,7 @@ How it works:
 - Queries the database for all restaurant events.
 - Retrieves event detials, including available spots.
 Returns: Rendered event list template. """
-@login_required(login_url='login')
 def all_events(request):
-
     event_list = restaurant_event.objects.all().order_by('event_date')
     for event in event_list:
         event.available_spots
@@ -53,20 +49,19 @@ def all_events(request):
 
 
 """
-Reservation form (general):
+Reservation form page:
 Functionality:
 - Redirects user to the reservation form for a specific event.
 How it works:
 -Retrieves event ID from the url.
 Returns: redirects user to the reservation_form template."""
 @login_required(login_url='login')
-
 def make_reservation(request, event_id):
     return redirect('reservation_form', event_id=event_id)
 
 
 """
-Reservation form (logic):
+Reservation form (Logic):
 Functionality:
 - Handles the logic for making a reservation for a specific event.
 How it works:
