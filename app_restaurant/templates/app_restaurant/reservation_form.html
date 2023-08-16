@@ -9,11 +9,22 @@
         <h5 class="card-title">Event: {{ selected_event.name }}</h5>
         <p class="card-text">Available Spots: {{ selected_event.available_spots }}</p>
 
-        <form method="post">
+        <form method="post" id="reservation-form">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="submit" class="btn btn-success" id="submit-button">Submit</button>
         </form>
     </div>
 </div>
+
+<script>
+    const form = document.getElementById('reservation-form');
+    const submitButton = document.getElementById('submit-button');
+    const availableSpots = {{ selected_event.available_spots }} - 1;
+
+    form.addEventListener('input', function () {
+        const numberOfFriends = document.getElementById('id_number_of_friends').value;
+        submitButton.disabled = numberOfFriends > availableSpots;
+    });
+</script>
 {% endblock %}
