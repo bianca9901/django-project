@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import restaurant_event, restaurant_reservation
+from .models import restaurant_event, restaurant_reservation, menu
 from .forms import ReservationForm
 
 def home(request):
@@ -10,10 +10,15 @@ Functionality: Displays home page. Returns: Home template. """
     return render(request, 'app_restaurant/home.html', {})
 
 
-def menu(request):
+def display_menu(request):
     """ Menu page:
-Functionality: Displays menu page. Returns: Menu template. """
-    return render(request, 'app_restaurant/menu.html', {})
+Functionality: Displays menu page.
+How it works:
+- Queries the database for all menu items.
+Returns: Menu template. """
+    food_items = menu.objects.filter(category='food')
+    drinks_items = menu.objects.filter(category='drinks')
+    return render(request, 'app_restaurant/menu.html', {'food_items': food_items, 'drinks_items': drinks_items})
 
 
 def about_us(request):
@@ -28,7 +33,7 @@ Functionality:
 - Retrieves events and pictures that was made by the staff in the Admin Dashboard.
 How it works:
 - Queries the database for all restaurant events.
-- Retrieves event detials, including available spots.
+- Retrieves event details, including available spots.
 Returns: Rendered event list template. """
     event_list = restaurant_event.objects.all().order_by('event_date')
     for event in event_list:

@@ -27,3 +27,20 @@ class restaurant_reservation(models.Model):
 
     def __str__(self):
         return f"Reservation for {self.user} at {self.event}"
+
+
+class menu(models.Model):
+    FOOD = 'food'
+    DRINKS = 'drinks'
+    CATEGORY_CHOICES = [
+        (FOOD, 'Food'),
+        (DRINKS, 'Drinks'),
+    ]
+
+    name = models.CharField('Item Name', max_length=100)
+    description = models.TextField(blank=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    category = models.CharField(max_length=10, choices=CATEGORY_CHOICES, default=FOOD)
+
+    def __str__(self):
+        return self.name

@@ -6,143 +6,34 @@
 <p>We pour our passion and dedication (along with a generous helping of delicious ingredients) into
     crafting every dish and drink we serve.</p>
 </br>
-<!--Menu section-->
 <div class="menu">
     <div class="card card-body food-card">
         <h3>FOOD</h3>
         <ol class="list-group menu-items">
+            {% for food_item in food_items %}
             <li class="list-group-item d-flex justify-content-between align-items-start">
                 <div class="ms-2 me-auto">
-                    <div class="fw-bold">Lentil Salad</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    <div class="fw-bold">{{ food_item.name }}</div>
+                    {{ food_item.description }}
                 </div>
-                <span class="badge bg-dark rounded-pill">8 €</span>
+                <span class="badge bg-dark rounded-pill">{{ food_item.price }} €</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">Black Bean Burger</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <span class="badge bg-dark rounded-pill">9 €</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">Spinach Lasange</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <span class="badge bg-dark rounded-pill">11 €</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">Patatas Bravas</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <span class="badge bg-dark rounded-pill">5 €</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">Tempeh Sandwish</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <span class="badge bg-dark rounded-pill">8 €</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">Green Salad</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <span class="badge bg-dark rounded-pill">11 €</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">Fried Rice</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <span class="badge bg-dark rounded-pill">7 €</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">Sesame Noodles</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <span class="badge bg-dark rounded-pill">7 €</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">American Veggie Burger</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <span class="badge bg-dark rounded-pill">10 €</span>
-            </li>
+            {% endfor %}
         </ol>
     </div>
 
     <div class="card card-body drinks-card">
         <h3>DRINKS</h3>
         <ol class="list-group menu-items">
+            {% for drinks_item in drinks_items %}
             <li class="list-group-item d-flex justify-content-between align-items-start">
                 <div class="ms-2 me-auto">
-                    <div class="fw-bold">Pineapple Sour</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    <div class="fw-bold">{{ drinks_item.name }}</div>
+                    {{ drinks_item.description }}
                 </div>
-                <span class="badge bg-dark rounded-pill">14 €</span>
+                <span class="badge bg-dark rounded-pill">{{ drinks_item.price }} €</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">Blueberry Blues</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <span class="badge bg-dark rounded-pill">14 €</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">Striking Strawberry</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <span class="badge bg-dark rounded-pill">14 €</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">Galaxy Green</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <span class="badge bg-dark rounded-pill">14 €</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">Appleade</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <span class="badge bg-dark rounded-pill">14 €</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">Dragon fruit Dosis</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <span class="badge bg-dark rounded-pill">14 €</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">Wine</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <span class="badge bg-dark rounded-pill">12 €</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">Beer</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <span class="badge bg-dark rounded-pill">6 €</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">Champange</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-                <span class="badge bg-dark rounded-pill">20 €</span>
-            </li>
+            {% endfor %}
         </ol>
     </div>
 </div>
