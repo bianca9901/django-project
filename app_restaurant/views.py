@@ -128,6 +128,17 @@ Returns: Rendered my Events template. """
 
 @login_required(login_url='login')
 def edit_reservation(request, reservation_id):
+    """ My Events page (Edit):
+Functionality:
+- If Edit reservation = POST:
+- Spots reserved for this event gets added back to the available spots for the event.
+- Reservation is deleted.
+- User gets notified with message.
+- User is redirected to the particular event they wanted to edit.
+How it works: Variables saving the reservation details, such as username that made booking gets deleted.
+And number of friends + user total is restored to available spots sum. The event id is used to redirect
+user to the particular event they wanted to make a updated decision on reservation details for.
+Returns: Rendered my Events template. """
     reservation = get_object_or_404(restaurant_reservation, pk=reservation_id, user=request.user)
     selected_event = reservation.event
 
