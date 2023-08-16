@@ -84,9 +84,6 @@ Returns: rendered reservation form template. """
                 selected_event.save()
                 messages.success(request, 'Reservation successfully submitted!')
                 return redirect('list_events')
-            else:
-                messages.error(request, 'Sorry, there are no more available spots for this event.')
-                return redirect('list_events')
     else:
         form = ReservationForm()
 
