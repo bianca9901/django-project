@@ -1,6 +1,9 @@
 {% extends 'app_restaurant/base.html' %}
 
 {% block content %}
+<!--Register Account Page-->
+
+<div class="container shadow p-4 mt-5 mb-5 bg-body rounded">
 
 {% if form.errors %}
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -9,19 +12,20 @@
 </div>
 {% endif %}
 
-<br/><br/>
-<div class="shadow p-4 mb-5 bg-body rounded">
-<h1>Register</h1>
-<br/><br/>
 
-<form action="{% url 'register_user' %}" method="POST">
-    {% csrf_token %}
-
-    {{ form.as_p }}
-
-<br/><br/>
-    <input type="submit" value="Submit" class="btn btn-secondary">
-  </form>
-<br/><br/>
-{% endblock %}
+<div>
+    <br/>
+    <br/>
+    <h1>Register</h1>
+    <br/><br/>
+<p>Please <a href="{% url 'login' %}">login</a> if you already have an account.</p>
+    <br/><br/>
+    <form action="{% url 'register_user' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br /><br />
+        <input type="submit" value="Submit" class="btn btn-secondary">
+    </form>
 </div>
+</div>
+    {% endblock %}
