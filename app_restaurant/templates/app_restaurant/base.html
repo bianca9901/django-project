@@ -16,7 +16,11 @@
 </head>
 
 <body>
+    <!--Navbar here-->
     {% include 'app_restaurant/navbar.html' %}
+
+
+    <!--Messages here-->
     {% if messages %}
     <div class="messages">
         {% for message in messages %}
@@ -28,21 +32,19 @@
     </div>
     {% endif %}
 
-  
-        {% block content %}
-        
-        {% endblock %}
 
-    
+    <!--Content here-->
+    {% block content %}
 
-    <!--Map and Footer-->
+    {% endblock %}
+
+
+    <!--Map and Footer here-->
     <section>
-        <div class="container map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20472.740141865957!2d18.039234409263315!3d59.31874036046145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f763119640bcb%3A0xa80d27d3679d7766!2sStockholm!5e0!3m2!1ssv!2sse!4v1690616526160!5m2!1ssv!2sse"
-                width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20472.740141865957!2d18.039234409263315!3d59.31874036046145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f763119640bcb%3A0xa80d27d3679d7766!2sStockholm!5e0!3m2!1ssv!2sse!4v1690616526160!5m2!1ssv!2sse"
+            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
     <footer>
         <div class="footer-p-container">
@@ -73,11 +75,12 @@
         </ul>
     </footer>
 
-<!--Font Awesome icons-->
-<script src="https://kit.fontawesome.com/c6099e5633.js" crossorigin="anonymous"></script>
+    
+    <!--Font Awesome icons-->
+    <script src="https://kit.fontawesome.com/c6099e5633.js" crossorigin="anonymous"></script>
 
-<!--Bootstrap-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
