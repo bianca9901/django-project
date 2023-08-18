@@ -4,27 +4,29 @@
 <!--Reviews Page-->
 
 <div class="container">
-</br>
-</br>
-<h2> Reviews </h2>
+    </br>
+    </br>
+    <h2> Reviews </h2>
 
-<div class="p-3 border rounded d-flex flex-column justify-content-center align-items-center">
-            <p>We would appreciate if you would share your experience with us!</p>
-            {% if user.is_authenticated %}
-            <a href="{% url 'post_review' %}" class="btn review-btn btn-lg">Write a Review</a>
-            {% else %}
-            <p>Please <a href="{% url 'login' %}">log in</a> to write a review.</p>
-            {% endif %}
-</div>
+    <div class="p-3 border rounded d-flex flex-column justify-content-center align-items-center">
+        <p>We would appreciate if you would share your experience with us!</p>
+        {% if user.is_authenticated %}
+        <a href="{% url 'post_review' %}" class="btn review-btn btn-lg">Write a Review</a>
+        {% else %}
+        <p>Please <a href="{% url 'login' %}">log in</a> to write a review.</p>
+        {% endif %}
+    </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <ul>
-                {% for review in reviews %}
-                <li>
-                    <strong>{{ review.user.username }}</strong> - {{ review.review_text }}<br>
-                    <small>Posted on {{ review.pub_date }}</small>
+    <div class="container mt-3">
+        <div class="row">
+            {% for review in reviews %}
+            <div class="col-md-4 mb-3">
+                <div class="p-3 border rounded">
+                    <p>By <strong>{{ review.user.username }}</strong></p>
+                    <br />
+                    <p> - {{ review.review_text }} </p>
+                    <br />
+                    <p><small>Posted on <span class="custom-color-gold">{{ review.pub_date }}</span></small></p>
                     {% if user.is_authenticated and user == review.user %}
                     <a href="{% url 'edit_review' review.id %}" class="btn btn-sm btn-primary">Edit</a>
                     <form method="POST" action="{% url 'delete_review' review.id %}" style="display:inline">
@@ -32,12 +34,11 @@
                         <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                     </form>
                     {% endif %}
-                </li>
-                {% endfor %}
-            </ul>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
+    
 </div>
-
-</div>   
-{% endblock %}
+    {% endblock %}
