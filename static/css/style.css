@@ -14,7 +14,7 @@ h2 {
 
 h3, h4, h5 {
     font-family: 'Caveat', cursive;
-    font-size: 40px;
+    font-size: 30px;
     text-align: center;
     margin-bottom: 30px;
 }
@@ -140,6 +140,7 @@ p {
 
 .rounded-pill {
     font-size: 17px;
+    background-color: rgb(189, 194, 125);
 }
 
 /* All events page */
