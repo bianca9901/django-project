@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import restaurant_event, restaurant_reservation, menu
+from .models import restaurant_event, restaurant_reservation, menu, review
 
 
 class ReservationInline(admin.TabularInline):
@@ -19,3 +19,9 @@ class MenuAdmin(admin.ModelAdmin):
     fields = ('name', 'price', 'description', 'category')
     list_display = ('name', 'price', 'category')
     list_filter = ('category',)
+
+@admin.register(review)
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ('user', 'review_text', 'pub_date')
+    list_filter = ('pub_date',)
+    ordering = ('-pub_date',)
