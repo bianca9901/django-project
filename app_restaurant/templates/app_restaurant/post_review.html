@@ -1,0 +1,31 @@
+{% extends 'app_restaurant/base.html' %}
+
+{% block content %}
+<div class="container">
+    </br>
+    </br>
+    <h2> Write your Review here! </h2>
+
+    <div class="container text-center mt-5">
+
+        <div class="p-3 border rounded mt-3">
+            <p>Thank you so much for your visit! We hope that you had a good time.</p>
+            <span class="custom-color-gold custom-text" style="font-size: 30px;"> - Django Team</span>
+
+            {% if user.is_authenticated %}
+            <form method="POST" action="{% url 'post_review' %}">
+                {% csrf_token %}
+                {{ form.review_text.label_tag }}
+                <textarea class="form-control" name="review_text" rows="4"
+                    placeholder="Write your review here"></textarea>
+                <button type="submit" class="btn review-btn btn-lg mt-3">Submit Review</button>
+            </form>
+            {% else %}
+            <p>Please <a href="{% url 'login' %}">log in</a> to write a review.</p>
+            {% endif %}
+        </div>
+    </div>
+    <br/>
+    <br/>
+</div>
+{% endblock %}

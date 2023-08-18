@@ -1,0 +1,27 @@
+{% extends 'app_restaurant/base.html' %}
+
+{% block content %}
+<div class="container">
+    </br>
+    </br>
+    <h2> Edit your Review here! </h2>
+
+    <div class="container text-center mt-5">
+
+        <div class="p-3 border rounded mt-3">
+            <p>We appreciate that you are sharing your experience with us!</p>
+            <span class="custom-color-gold custom-text" style="font-size: 30px;"> - Django Team</span>
+
+            <form method="POST" class="mt-3">
+                {% csrf_token %}
+                <label for="{{ form.review_text.id_for_label }}">Edit your review:</label>
+                <textarea class="form-control" name="review_text"
+                    rows="4">{{ form.review_text.value|default_if_none:'' }}</textarea>
+                <input type="hidden" name="review_id" value="{{ review.id }}">
+                <a href="{% url 'list_reviews' %}" class="btn btn-secondary btn-lg mt-3">Go Back</a>
+                <button type="submit" class="btn review-btn btn-lg mt-3 mx-auto">Update Review</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -55,7 +55,6 @@ p {
 .carousel-item {
     height: 600px;
     position: relative;
-    margin-bottom: 50px;
 }
 
 .carousel-image {
@@ -99,6 +98,16 @@ p {
     justify-content: center;
 }
 
+.review-btn {
+    background-color: rgb(189, 194, 125);
+    color: white;
+}
+
+.review-btn:hover {
+    background-color: rgb(147, 152, 80);
+    color: white;
+}
+
 /* Messages */
 .success {
     font-family: 'Open Sans', sans-serif;
@@ -122,6 +131,7 @@ p {
     justify-content: space-between;
     flex-wrap: wrap;
     margin: 50px;
+    margin-bottom: 0;
 }
 
 .fw-bold {

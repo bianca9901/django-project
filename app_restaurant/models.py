@@ -44,3 +44,12 @@ class menu(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class review(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    review_text = models.TextField(blank=False)
+    pub_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Review by {self.user} on {self.pub_date}"

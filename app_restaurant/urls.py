@@ -11,4 +11,8 @@ urlpatterns = [
     path('menu', views.display_menu, name='menu'),
     path('about_us', views.about_us, name='about_us'),
     path('edit_reservation/<int:reservation_id>/', views.edit_reservation, name='edit_reservation'),
+    path('list_reviews/', views.list_reviews, name='list_reviews'),
+    path('post_review/', views.post_review, name='post_review'),
+    path('edit_review/<int:review_id>/', views.edit_review, name='edit_review'),
+    path('delete_review/<int:review_id>/', views.delete_review, name='delete_review'),
 ]

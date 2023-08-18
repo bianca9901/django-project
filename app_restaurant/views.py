@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import restaurant_event, restaurant_reservation, menu
-from .forms import ReservationForm
+from .models import restaurant_event, restaurant_reservation, menu, review
+from .forms import ReservationForm, ReviewForm
 
 def home(request):
     """ Home page:
@@ -155,4 +155,45 @@ Returns: Rendered my Events template. """
         messages.success(request, 'Your reservation was canceled. You can now make a new reservation.')
         return redirect('reservation_form', event_id=selected_event.id)
     return render(request, 'app_restaurant/my_events.html', {'selected_event': selected_event})
-    
+
+
+def list_reviews(request):
+    reviews = review.objects.all()
+    return render(request, 'app_restaurant/list_reviews.html', {'reviews': reviews})
+
+
+@login_required(login_url='login')
+def post_review(request):
+    form = ReviewForm(request.POST)
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.user = request.user
+            review.save()
+            return redirect('list_reviews')
+    else:
+        form = ReviewForm()
+    return render(request, 'app_restaurant/post_review.html', {'form': form})
+
+
+@login_required(login_url='login')
+def edit_review(request, review_id):
+    review_to_edit = get_object_or_404(review, pk=review_id, user=request.user)
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, instance=review_to_edit)
+        if form.is_valid():
+            form.save()
+            return redirect('list_reviews')
+    else:
+        form = ReviewForm(instance=review_to_edit)  
+    return render(request, 'app_restaurant/edit_review.html', {'form': form, 'review': review_to_edit})
+
+
+@login_required(login_url='login')
+def delete_review(request, review_id):
+    review_to_delete = get_object_or_404(review, pk=review_id, user=request.user)
+    if request.method == 'POST':
+        review_to_delete.delete()
+        return redirect('list_reviews')
+    return render(request, 'app_restaurant/delete_review.html', {'review': review})
