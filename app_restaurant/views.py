@@ -165,3 +165,12 @@ def delete_review(request, review_id):
         review_to_delete.delete()
         messages.success(request, 'Your review was deleted!')
         return redirect('list_reviews')
+
+
+def django_404(request, exception):
+    """ Custom error 404 page """
+    return render(request, 'app_restaurant/errors/404.html', status=404)
+
+def django_500(request):
+    """ Custom error 500 page """
+    return render(request, 'app_restaurant/errors/500.html', status=500)
