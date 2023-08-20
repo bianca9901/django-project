@@ -22,6 +22,62 @@
 
 ---
 
+## Pages
+
+### Home Page
+
+**Presents the restaurant's offerings through text and image slides.**
+
+![Home](documentation/pages/home.png)
+
+### About Us Page
+
+**Displays image of staff and text about the restaurant's philosophy.**
+
+![About Us](documentation/pages/about-us.png)
+
+### Menu Page
+
+**Displays food and drink offerings with descriptions and prices.**
+
+![Grey](documentation/design/grey.png)
+
+### Events Page
+
+**Displays upcoming events with date, time, description, and the available spots left.**
+
+![Events](documentation/pages/events.png)
+
+### Event Reservation Page
+
+**Displays a concise recap about the selected event, a numberbox for users to specify the number of companions and a submit button.**
+
+![Events](documentation/pages/reservation-form.png)
+
+### My Events Page
+**Shows authenticated user’s their upcoming events and cancelation and editing buttons.**
+
+![My Events](documentation/pages/my-events.png)
+
+### Reviews Page
+**Displays all guest reviews.**
+
+![Grey](documentation/design/grey.png)
+
+### Review Form
+**Displays textbox that allows users to write and submit their review.**
+
+![Grey](documentation/pages/review-form.png)
+
+### Edit Review Form
+**Displays prepopulated textbox with previously written review text.**
+
+![Grey](documentation/pages/edit-review-form.png)
+
+*ps. login, logout, registration, error404 and error500 templates are not included. Please visit the website link here.*
+
+---
+
 ## Design
 
 ### The design choice:

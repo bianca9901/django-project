@@ -6,23 +6,26 @@
 <div class="container">
     </br>
     </br>
-    <h2>Make a Reservation</h2>
+    <h2> Make your Reservation here! </h2>
 
-    <!--Reservation card-->
-    <div class="card mb-4">
-        <div class="card-body">
-            <h5 class="card-title">Event: {{ selected_event.name }}</h5>
-            <p class="card-text">Available Spots: {{ selected_event.available_spots }}</p>
-            <!--Reservation form-->
-            <form method="post" id="reservation-form">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-success" id="submit-button">Submit</button>
-            </form>
+    <div class="container text-center mt-5">
+
+        <!--Reservation card-->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title mb-3">Event: {{ selected_event.name }}</h5>
+                <p class="card-text mb-3">Available Spots: {{ selected_event.available_spots }}</p>
+                <!--Reservation form-->
+                <form method="post" id="reservation-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-success btn-lg mb-3" id="submit-button">Submit Reservation</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
+</div>
 <script>
     const form = document.getElementById('reservation-form');
     const submitButton = document.getElementById('submit-button');
