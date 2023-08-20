@@ -142,3 +142,53 @@ For the paragraphs I used Open Sans Medium 500 Italic.
 * [Font Awesome](https://fontawesome.com): was used for the social media icons.
 
 ---
+
+## Credits
+
+### Inspiration and Help:
+
+ [These](https://www.youtube.com/watch?v=HHx3tTQWUx0&list=PLCC34OHNcOtqW9BJmgQPPzUpJ8hl49AGy) Youtube videos served as a helper to get started with my event views and the application for members.
+
+ [This](https://www.youtube.com/@technologyit5133) Youtube channel showed me general tips and tricks about Django that I applied.
+
+ [This](https://stackoverflow.com/questions/17142790/bootstrap-modal-not-working-at-all) question in Stack Overflow helped me overcome the issue I had with Bootstrap.
+
+### Media:
+
+All images were sourced from [Pexels](https://www.pexels.com).
+
+**Carousel Images:**
+
+* [Bar Image](https://www.pexels.com/photo/person-pouring-wine-in-a-jigger-making-a-cocktail-drink-15081737/)
+
+* [Food Image](https://www.pexels.com/sv-se/foto/mat-restaurang-hander-manniskor-1310777/)
+
+* [Restaurant Interior Image](https://www.pexels.com/photo/empty-dining-sets-at-the-eatery-2313037/)
+
+* [Friends Image](https://www.pexels.com/photo/friends-drinking-whisky-and-cocktails-in-a-bar-16374147/)
+
+* [Man playing guitar Image](https://www.pexels.com/photo/photo-of-man-playing-guitar-4054461/)
+
+**About Us Image:**
+
+* [Group photo image](https://www.pexels.com/sv-se/foto/manniskor-kvinna-vanner-man-6150584/)
+
+**Events Images:**
+
+* [Chess image](https://www.pexels.com/photo/men-playing-chess-on-the-wooden-table-11434528/)
+
+* [Karaoki image](https://www.pexels.com/photo/man-singing-1238943/)
+
+* [Billiard image](https://www.pexels.com/photo/people-playing-billiard-5055267/)
+
+* [Monopoly](https://www.pexels.com/photo/game-figures-on-board-on-table-17391987/)
+
+* [Beerpong](https://www.pexels.com/photo/photograph-of-women-playing-beer-pong-7022149/)
+
+* [Singer](https://www.pexels.com/photo/woman-playing-electric-guitar-1864653/)
+
+### Content:
+
+[This](https://www.coastlinenservices.com/blog/vegetarian-and-vegan-menu-options/) blog is where the menus food titles were taken from. 
+
+---
