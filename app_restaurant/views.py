@@ -133,7 +133,7 @@ total_spots_freed variable and gets restored to the events available spots.
 
 def list_reviews(request):
     """Queries the database for all reviews."""
-    reviews = review.objects.all()
+    reviews = review.objects.all().order_by('-pub_date')
     context = {'reviews': reviews}
     return render(request, 'app_restaurant/list_reviews.html', context)
 
