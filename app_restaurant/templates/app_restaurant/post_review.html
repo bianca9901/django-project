@@ -14,7 +14,9 @@
             <p>Thank you so much for your visit! We hope that you had a good time.</p>
             <span class="custom-color-gold custom-text" style="font-size: 30px;"> - Django Team</span>
 
+            <!--Checks if user is authenticated-->
             {% if user.is_authenticated %}
+            <!--Review form-->
             <form method="POST" action="{% url 'post_review' %}">
                 {% csrf_token %}
                 {{ form.review_text.label_tag }}
@@ -23,6 +25,7 @@
                 <button type="submit" class="btn review-btn btn-lg mt-3">Submit Review</button>
             </form>
             {% else %}
+            <!--Promts user to login-->
             <p>Please <a href="{% url 'login' %}">log in</a> to write a review.</p>
             {% endif %}
         </div>
@@ -30,4 +33,5 @@
     <br />
     <br />
 </div>
+
 {% endblock %}

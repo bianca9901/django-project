@@ -21,21 +21,26 @@
     </p>
 
     <div class="row">
+        <!--Loop through events-->
         {% for event in event_list %}
         <div class="col-md-4 mb-4">
+            <!--Event card-->
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{ event.name }}</h5>
                     <p class="card-text">Date: <span class="custom-color-gold">{{ event.event_date }}</span></p>
-                    <p class="card-text">Available Spots: <span class="custom-color-gold">{{ event.available_spots}}</span>
+                    <p class="card-text">Available Spots: <span class="custom-color-gold">{{
+                            event.available_spots}}</span>
                     </p>
                     <div class="set-height">
                         <p class="card-text">{{ event.description }}</p>
+                        <!--Displays image-->
                         {% if event.image %}
                         <img src="{{ event.image.url }}" alt="{{ event.name }}" class="img-fluid">
                         {% endif %}
                     </div>
                     <br /><br /><br />
+                    <!--Join button-->
                     <div class="join-btn">
                         <a href="{% url 'make_reservation' event.id %}" class="btn btn-success">Join The Fun!</a>
                     </div>
@@ -46,4 +51,5 @@
     </div>
 
 </div>
+
 {% endblock %}

@@ -10,9 +10,11 @@
 
     <div class="p-3 border rounded d-flex flex-column justify-content-center align-items-center">
         <p>We would appreciate if you would share your experience with us!</p>
+        <!--Prompts logged in users to write a review-->
         {% if user.is_authenticated %}
         <a href="{% url 'post_review' %}" class="btn review-btn btn-lg">Write a Review</a>
         {% else %}
+        <!--Prompts not logged in users to log in to write a review-->
         <p>Please <a href="{% url 'login' %}">log in</a> to write a review.</p>
         {% endif %}
     </div>
@@ -27,6 +29,7 @@
                     <p> - {{ review.review_text }} </p>
                     <br />
                     <p><small>Posted on <span class="custom-color-gold">{{ review.pub_date }}</span></small></p>
+                    <!--Makes Delete & Edit button visible and available if the review was written by the currently logged in user-->
                     {% if user.is_authenticated and user == review.user %}
                     <a href="{% url 'edit_review' review.id %}" class="btn btn-sm btn-primary">Edit</a>
                     <form method="POST" action="{% url 'delete_review' review.id %}" style="display:inline">
@@ -39,6 +42,7 @@
             {% endfor %}
         </div>
     </div>
-    
+
 </div>
-    {% endblock %}
+
+{% endblock %}

@@ -4,97 +4,104 @@
 <!--My Events Page-->
 
 <div class="container">
-</br>
-</br>
-<h2>My Events</h2>
+    </br>
+    </br>
+    <h2>My Events</h2>
 
-{% if events %}
-{% for event_data in events %}
+    <!--Checks if user has events-->
+    {% if events %}
+    {% for event_data in events %}
 
-<div class="card mb-4">
-    <div class="card-body">
-        <h5 class="card-title">{{ event_data.event.name }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ event_data.event.event_date }}</h6>
-        <p class="card-text">You are bringing {{ event_data.reservation.number_of_friends }} friend(s).</p>
+    <!--Displays events-->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">{{ event_data.event.name }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ event_data.event.event_date }}</h6>
+            <p class="card-text">You are bringing {{ event_data.reservation.number_of_friends }} friend(s).</p>
 
-        <form method="post" action="{% url 'cancel_reservation' event_data.reservation.id %}">
-            {% csrf_token %}
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                data-bs-target="#cancel-modal{{ event_data.reservation.id }}">
-                Cancel Reservation
-            </button>
+            <!--Cancel and Edit buttons-->
+            <form method="post" action="{% url 'cancel_reservation' event_data.reservation.id %}">
+                {% csrf_token %}
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                    data-bs-target="#cancel-modal{{ event_data.reservation.id }}">
+                    Cancel Reservation
+                </button>
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#edit-modal{{ event_data.reservation.id }}">
-                Edit Reservation
-            </button>
-        </form>
-        <br/>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#edit-modal{{ event_data.reservation.id }}">
+                    Edit Reservation
+                </button>
+            </form>
+            <br />
 
-
-        <div class="modal fade" id="cancel-modal{{ event_data.reservation.id }}" tabindex="-1"
-            aria-labelledby="cancel-modal-label" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="cancel-modal-label">Cancel Reservation</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to cancel your reservation?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, Keep
-                            Reservation</button>
-                        <form method="post" action="{% url 'cancel_reservation' event_data.reservation.id %}">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-danger">Yes, Cancel Reservation</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="edit-modal{{ event_data.reservation.id }}" tabindex="-1"
-            aria-labelledby="edit-modal-label" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="edit-modal-label">Edit Reservation</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to edit your reservation?
-                        <p class="important-note">
-                            If you choose to edit your reservation, your current reservation will be canceled.
-                            Additionally, please be aware that if you intend to invite more friends than your initial
-                            booking,
-                            there might not be enough available spots to accommodate the change.
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Go Back</button>
-                        <form method="post" action="{% url 'edit_reservation' event_data.reservation.id %}">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-primary">Edit</button>
-                        </form>
+            <!--Cancel reservation modal-->
+            <div class="modal fade" id="cancel-modal{{ event_data.reservation.id }}" tabindex="-1"
+                aria-labelledby="cancel-modal-label" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="cancel-modal-label">Cancel Reservation</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to cancel your reservation?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, Keep
+                                Reservation</button>
+                            <form method="post" action="{% url 'cancel_reservation' event_data.reservation.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Yes, Cancel Reservation</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!--Edit reservation modal-->
+            <div class="modal fade" id="edit-modal{{ event_data.reservation.id }}" tabindex="-1"
+                aria-labelledby="edit-modal-label" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="edit-modal-label">Edit Reservation</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to edit your reservation?
+                            <p class="important-note">
+                                If you choose to edit your reservation, your current reservation will be canceled.
+                                Additionally, please be aware that if you intend to invite more friends than your
+                                initial
+                                booking,
+                                there might not be enough available spots to accommodate the change.
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Go Back</button>
+                            <form method="post" action="{% url 'edit_reservation' event_data.reservation.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary">Edit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+
+            <p class="important-note">
+                Important Note: If you choose to edit your reservation, your current reservation will be canceled.
+                Additionally, please be aware that if you intend to invite more friends than your initial booking,
+                there might not be enough available spots to accommodate the change.
+            </p>
         </div>
-
-        <br/>
-
-        <p class="important-note">
-            Important Note: If you choose to edit your reservation, your current reservation will be canceled.
-            Additionally, please be aware that if you intend to invite more friends than your initial booking,
-            there might not be enough available spots to accommodate the change.
-        </p>
     </div>
+    {% endfor %}
+    {% else %}
+    <!--No reservation message-->
+    <p style="font-size: 30px;" class="text-center mt-5 mb-5">You have no events.</p>
+    {% endif %}
 </div>
-{% endfor %}
-{% else %}
-<p style="font-size: 30px;" class="text-center mt-5 mb-5">You have no events.</p>
-{% endif %}
-</div>
+
 {% endblock %}

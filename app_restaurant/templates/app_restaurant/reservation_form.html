@@ -4,31 +4,35 @@
 <!--Make A Reservartion Page-->
 
 <div class="container">
-</br>
-</br>
-<h2>Make a Reservation</h2>
+    </br>
+    </br>
+    <h2>Make a Reservation</h2>
 
-<div class="card mb-4">
-    <div class="card-body">
-        <h5 class="card-title">Event: {{ selected_event.name }}</h5>
-        <p class="card-text">Available Spots: {{ selected_event.available_spots }}</p>
-
-        <form method="post" id="reservation-form">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-success" id="submit-button">Submit</button>
-        </form>
+    <!--Reservation card-->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Event: {{ selected_event.name }}</h5>
+            <p class="card-text">Available Spots: {{ selected_event.available_spots }}</p>
+            <!--Reservation form-->
+            <form method="post" id="reservation-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success" id="submit-button">Submit</button>
+            </form>
+        </div>
     </div>
 </div>
-</div>
+
 <script>
     const form = document.getElementById('reservation-form');
     const submitButton = document.getElementById('submit-button');
     const availableSpots = {{ selected_event.available_spots }} - 1;
 
+    // Disables submit button if restaurant can't accomadate the number of people in the reservation.
     form.addEventListener('input', function () {
         const numberOfFriends = document.getElementById('id_number_of_friends').value;
         submitButton.disabled = numberOfFriends > availableSpots;
     });
 </script>
+
 {% endblock %}

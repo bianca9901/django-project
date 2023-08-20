@@ -4,44 +4,51 @@
 <!--Menu Page-->
 
 <div class="container">
-</br>
-</br>
-<h2> Menu </h2>
+    </br>
+    </br>
+    <h2> Menu </h2>
 
-<p class="text-center">We pour our passion and dedication (along with a generous helping of delicious ingredients) into
-    crafting every dish and drink we serve.</p>
-</br>
-<div class="menu">
-    <div class="card card-body food-card">
-        <h3>FOOD</h3>
-        <ol class="list-group menu-items">
-            {% for food_item in food_items %}
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">{{ food_item.name }}</div>
-                    {{ food_item.description }}
-                </div>
-                <span class="badge rounded-pill">{{ food_item.price }} €</span>
-            </li>
-            {% endfor %}
-        </ol>
+    <p class="text-center">We pour our passion and dedication (along with a generous helping of delicious ingredients)
+        into
+        crafting every dish and drink we serve.</p>
+    </br>
+
+    <div class="menu">
+        <!--Food menu-->
+        <div class="card card-body food-card">
+            <h3>FOOD</h3>
+            <ol class="list-group menu-items">
+                <!--Loop through food items-->
+                {% for food_item in food_items %}
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">{{ food_item.name }}</div>
+                        {{ food_item.description }}
+                    </div>
+                    <span class="badge rounded-pill">{{ food_item.price }} €</span>
+                </li>
+                {% endfor %}
+            </ol>
+        </div>
+
+        <!--Drinks menu-->
+        <div class="card card-body drinks-card">
+            <h3>DRINKS</h3>
+            <ol class="list-group menu-items">
+                <!--Loop through drink items-->
+                {% for drinks_item in drinks_items %}
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">{{ drinks_item.name }}</div>
+                        {{ drinks_item.description }}
+                    </div>
+                    <span class="badge rounded-pill">{{ drinks_item.price }} €</span>
+                </li>
+                {% endfor %}
+            </ol>
+        </div>
     </div>
 
-    <div class="card card-body drinks-card">
-        <h3>DRINKS</h3>
-        <ol class="list-group menu-items">
-            {% for drinks_item in drinks_items %}
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">{{ drinks_item.name }}</div>
-                    {{ drinks_item.description }}
-                </div>
-                <span class="badge rounded-pill">{{ drinks_item.price }} €</span>
-            </li>
-            {% endfor %}
-        </ol>
-    </div>
 </div>
 
-</div>
 {% endblock %}

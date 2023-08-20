@@ -3,8 +3,9 @@
     <nav class="navbar navbar-expand-lg bg-white shadow py-3">
         <div class="container">
             <a class="navbar-brand logo" href="{% url 'home' %}">Django</a>
-            <button class="navbar-toggler position_fixed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler position_fixed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -17,25 +18,27 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'menu' %}">Menu</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'list_reviews' %}">Reviews</a>
-                            </li>
-                        <li class=" nav-item">
-                            <a class="nav-link" href="{% url 'list_events' %}">Events</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'list_reviews' %}">Reviews</a>
+                    </li>
+                    <li class=" nav-item">
+                        <a class="nav-link" href="{% url 'list_events' %}">Events</a>
+                    </li>
+                    <!-- Displays "My Events" link if user is authenticated -->
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'my_events' %}">My Events</a>
                     </li>
                     {% endif %}
                 </ul>
+                <!-- Displays account related options depending on user status -->
                 {% if user.is_authenticated %}
-            <a href="{% url 'logout' %}" class="btn btn-outline-secondary account-btn">Logout</a>
-            {% else %}
-            <a href="{% url 'register_user' %}" class="btn btn-outline-secondary account-btn">Register</a>
-            <a href="{% url 'login' %}" class="btn btn-outline-secondary account-btn">Login</a>
-            {% endif %}
+                <a href="{% url 'logout' %}" class="btn btn-outline-secondary account-btn">Logout</a>
+                {% else %}
+                <a href="{% url 'register_user' %}" class="btn btn-outline-secondary account-btn">Register</a>
+                <a href="{% url 'login' %}" class="btn btn-outline-secondary account-btn">Login</a>
+                {% endif %}
             </div>
         </div>
     </nav>
