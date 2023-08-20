@@ -1,32 +1,23 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# The Django Restaurant
 
-Welcome,
+![Logo](documentation/about/logo.png)
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+## About
 
-## Reminders
+#### Django is a fictional restaurant that not only offers delicious food but also engaging events for its users to partake in.
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+**Django Restaurant Main Features:**
 
-## Creating the Heroku app
+* **Event reservations:** Explore upcoming events on the 'Events' page and choose the ones that best match your interests and secure your spot with ease.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+* **Easy reservation process:** The intuitive reservation process allows you to pick your desired event, select the number of spots you need, and make a reservation for yourself and your companions.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+* **Personalized Events dashboard:** Keep track of your upcoming plans effortlessly with the 'My Events' page. Here, you can find all the details you need. Need to change your plans? No problem, do it directly from your dashboard.
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+* **Menu exploration:** Explore the 'Menu' page to see the drinks and dishes served. The Menu goes by the admin dashboard so the staff will always update the page with the latest drinks and foods for you to see.
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+* **Share your experience:** Your feedback is valuable! You can always leave a review to share your thoughts and help us improve. Don’t worry if you want to edit or delete your review(s) later, you can always access and manage them.
 
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+![Different screens](documentation/different-screens.png)
 
 ---
-
-Happy coding!
