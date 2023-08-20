@@ -93,6 +93,38 @@ For the paragraphs I used Open Sans Medium 500 Italic.
 
 ---
 
+## Bugs
+
+### Solved Bugs
+
+**Bootstrap Modal Issue:** I wanted to use a modal for defensive programming. I Googled Bootstrap modals, and without thinking much more about it. I used the syntax provided in the Bootstrap documentation. I then tested my website but the modal would not pop up, causing a lot of confusion.
+
+**Solution:** After doing some research I found [this](https://stackoverflow.com/questions/17142790/bootstrap-modal-not-working-at-all) question from someone encountering the same issue as I, asking for help. And someone had an answer that I figured could be the issue.
+
+![Answer](documentation/bugs/stackoverflow.png)
+
+The issue stemmed from the fact that I used Bootstrap 5 in my base.html and when I initially Googled Bootstrap modals unfortunately the first result was the documentation for Bootstrap 4 which was the syntax I was trying to use in my code. This syntax did indeed not have the **bs** attribute as mentioned in the Stack Overflow answer.
+
+It was my fault that I had not checked the version of the modal. Good news is that
+when I changed to v.5 for the modal documentation in Bootstrap, (the version of Bootstrap that I used in my base.html) The modal would work as expected.
+
+This situation served as a valuable lesson in staying up-to-date with framework changes.
+
+
+### Unsolved bugs
+**Edit Reservation Issue:** I encountered an unresolved bug related to the Reservation feature, and I'd like to share my experience with it. Unfortunately, due to time constraints during the project, I wasn't able to fully implement all aspects of CRUD functionality in this area.
+
+The specific issue is the process of editing reservations. The original intention was for the reservation edit form to be prepopulated with the user's existing reservation details. This included accounting for the number of spots reserved and making sure they were correctly updated in the available spots count. For instance, if there were initially 10 available spots and a user reserved 5 spots, there should have been 5 spots remaining. If the user then attempted to edit their reservation by increasing the number of spots, the intention was to restore the originally reserved spots back to the available count (so that it's back to 10 in this example).
+This step was crucial to ensure a proper user experience. For instance, if a user had initially booked 5 spots but then decided to edit the reservation to increase the number of spots to 6, without restoring their originally reserved spots, the system would incorrectly show the event as fully booked even though there were spots available.
+
+Despite multiple days attempting, I struggled to accurately incorporate this aspect of CRUD functionality. The challenge stemmed from various factors, including potential changes in the available spots due to other users reserving spots in the same event, making it difficult to track and manage the correct spot count for editing reservations.
+
+Now, I had to make a tough decision. The only solution left was to cancel a user's existing reservation and guide them back to the event reservation form, where they could see the updated available spots count and make a totally new booking. While this solution definetely is not ideal, I made sure to include clear and important messages throughout the  edit reservation process to guide users and provide them with the best experience possible.
+
+I feel deeply dissapointed that I couldn't fully address this issue within the given timeframe.
+
+---
+
 ## Technologies Used
 
 ### Languages
