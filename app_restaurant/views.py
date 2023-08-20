@@ -26,8 +26,7 @@ def all_events(request):
     """Queries the database for all events and orders them
     by date, also retrieves the available spots."""
     event_list = restaurant_event.objects.all().order_by('event_date')
-    for event in event_list:
-        event.available_spots
+    for event in event_list: event.available_spots      
     context = {'event_list': event_list}
     return render(request, 'app_restaurant/restaurant_event_list.html', context)
 
