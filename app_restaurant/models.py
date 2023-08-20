@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator
-from cloudinary.models import CloudinaryField
 
 class restaurant_event(models.Model):
     name = models.CharField('Event Name', max_length=100)

@@ -13,7 +13,7 @@ def login_user(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.info(request, ('There Was An Error Loggin In, Try Again...'))
+            messages.info(request, ('Invalid username or password. Please try again.'))
             return redirect('login')
 
     else:
@@ -21,7 +21,7 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    messages.success(request, ('You Were Logged Out!'))
+    messages.success(request, ('You have been logged out.'))
     return redirect('home')
 
 def register_user(request):
@@ -33,7 +33,7 @@ def register_user(request):
             password = form.cleaned_data['password1']
             user = authenticate(username=username, password=password)
             login(request, user)
-            messages.success(request, ('Registration Successfull!'))
+            messages.success(request, ('Registration successfull! You are now logged in.'))
             return redirect('home')
     else:
         form = RegisterUserForm()
