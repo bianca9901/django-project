@@ -111,7 +111,7 @@ when I changed to v.5 for the modal documentation in Bootstrap, (the version of 
 This situation served as a valuable lesson in staying up-to-date with framework changes.
 
 
-### Unsolved bugs
+### Unsolved Bugs
 **Edit Reservation Issue:** I encountered an unresolved bug related to the Reservation feature, and I'd like to share my experience with it. Unfortunately, due to time constraints during the project, I wasn't able to fully implement all aspects of CRUD functionality in this area.
 
 The specific issue is the process of editing reservations. The original intention was for the reservation edit form to be prepopulated with the user's existing reservation details. This included accounting for the number of spots reserved and making sure they were correctly updated in the available spots count. For instance, if there were initially 10 available spots and a user reserved 5 spots, there should have been 5 spots remaining. If the user then attempted to edit their reservation by increasing the number of spots, the intention was to restore the originally reserved spots back to the available count (so that it's back to 10 in this example).
@@ -124,6 +124,20 @@ Now, I had to make a tough decision. The only solution left was to cancel a user
 I feel deeply dissapointed that I couldn't fully address this issue within the given timeframe.
 
 ---
+
+## Features left to implement
+
+* Implement the "U" in CRUD for reservations, as mentioned in bugs section [here](#unsolved-bugs).
+
+* Allow authenticated users to filter the "Reviews" page to see their previous reviews.
+
+* Implement pagination for the "Events" and "Reviews" pages.
+
+* Ensure consistent image sizes on the "Events" page to enhance UX.
+
+* Add a favicon
+
+----
 
 ## Technologies Used
 
