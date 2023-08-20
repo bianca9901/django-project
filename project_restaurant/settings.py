@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'cloudinary',
     'app_restaurant',
     'members',
-
 ]
 
 MIDDLEWARE = [
