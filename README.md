@@ -149,6 +149,12 @@ For the paragraphs I used Open Sans Medium 500 Italic.
 
 ---
 
+## Deployment
+
+Please visit [this link](DEPLOYMENT.md) to find deployment-related documentation.
+
+---
+
 ## Bugs
 
 ### Solved Bugs
@@ -254,6 +260,8 @@ I feel deeply dissapointed that I couldn't fully address this issue within the g
  [This](https://www.youtube.com/@technologyit5133) Youtube channel showed me general tips and tricks about Django that I applied.
 
  [This](https://stackoverflow.com/questions/17142790/bootstrap-modal-not-working-at-all) question in Stack Overflow helped me overcome the issue I had with Bootstrap.
+
+ [This](https://github.com/IuliiaKonovalova/e-commerce/blob/main/DEPLOYMENT.md) documentation was used as a template for my DEPLOYMENT.md.
 
 ### Media:
 
