@@ -32,7 +32,7 @@
 
 ### About Us Page
 
-**Displays image of staff and text about the restaurant's philosophy.**
+**Displays images of staff and text about the restaurant's philosophy.**
 
 ![About Us](documentation/pages/about-us.png)
 
@@ -40,7 +40,7 @@
 
 **Displays food and drink offerings with descriptions and prices.**
 
-![Grey](documentation/design/grey.png)
+![Menu](documentation/pages/menu.png)
 
 ### Events Page
 
@@ -50,22 +50,22 @@
 
 ### Event Reservation Page
 
-**Displays a concise recap about the selected event, a numberbox for users to specify the number of companions and a submit button.**
+**Displays a concise recap about the selected event, a number box for users to specify the number of companions, and a submit button.**
 
 ![Events](documentation/pages/reservation-form.png)
 
 ### My Events Page
-**Shows authenticated user’s their upcoming events and cancelation and editing buttons.**
+**Shows authenticated users their upcoming events and cancelation and editing buttons.**
 
 ![My Events](documentation/pages/my-events.png)
 
 ### Reviews Page
 **Displays all guest reviews.**
 
-![Grey](documentation/design/grey.png)
+![Grey](documentation/pages/reviews.png)
 
 ### Review Form
-**Displays textbox that allows users to write and submit their review.**
+**Displays textbox that allows users to write and submit their reviews.**
 
 ![Grey](documentation/pages/review-form.png)
 
@@ -74,7 +74,7 @@
 
 ![Grey](documentation/pages/edit-review-form.png)
 
-*ps. login, logout, registration, error404 and error500 templates are not included. Please visit the website link here.*
+*ps. login, logout, registration, error404, and error500 templates are not included. Please visit the website link here.*
 
 ---
 
@@ -85,7 +85,7 @@ I aimed to give the restaurant website a modern and sleek style, which drove my 
 
 With the modern feel as the base, I also wanted to give the restaurant a warm, and joyful ambiance. Therefore, the images were carefully selected to create an atmosphere that aligns with the restaurant's philosophy and key features.
 
-When it comes to the messages and buttons, I wanted them to catch the eye. That's why I opted for attention-grabbing colors that also aligns with its purpose, yellow for info etc.
+When it comes to the messages and buttons, I wanted them to catch the eye. That's why I opted for attention-grabbing colors that also align with its purpose, yellow for info, etc.
 
 Typography played a vital role to give the right feel. I aimed for a cool and hip style that resonates with the targeted audience.
 
@@ -111,7 +111,7 @@ RGB(190, 194, 133)
 ![Gold](documentation/design/gold.png)
 
 
-**For messages and buttons I used 2 nyances of red, 2 nyances of green, and yellow:**
+**For messages and buttons I used 2 nuances of red, 2 nuances of green, and yellow:**
 
 RGB(209, 77, 70)
 
@@ -141,10 +141,10 @@ RGB(255, 255, 132)
 For the logo and the signed "-Django Team" text pieces I used Zeyada Regular 400.
 ![Zeyada](documentation/design/zeyada.png)
 
-For the navbar and headlines I used Caveat Bold 700.
+For the navbar and headlines, I used Caveat Bold 700.
 ![Caveat](documentation/design/caveat.png)
 
-For the paragraphs I used Open Sans Medium 500 Italic.
+For the paragraphs, I used Open Sans Medium 500 Italic.
 ![Open Sans](documentation/design/opensans.png)
 
 ---
@@ -161,6 +161,86 @@ Please visit [this link](DEPLOYMENT.md) to find deployment-related documentation
 
 ---
 
+## Data Schema
+
+### The application `app_restaurant` has four models that represent different aspects of the restaurant.
+
+**`restaurant_event:`**
+
+The `restaurant_event` model represents events hosted by the restaurant.
+
+Fields:
+- `name`: The name of the event.
+- `event_date`: The date and time of the event.
+- `description`: A text field describing the event.
+- `available_spots`: The number of available spots for the event.
+- `image`: An image associated with the event.
+
+Methods:
+- `calculate_available_spots`: Calculates the number of available spots for the event by considering the reserved spots from related reservations.
+
+| Name                 | Database Key       | Field Type         | Validation                                                                               |
+| -------------------- | ------------------ | ------------------ | ---------------------------------------------------------------------------------------- |
+| name                 | name               | CharField          | max_length=100, verbose_name='Event Name'                                                |
+| event_date           | event_date         | DateTimeField      | verbose_name='Event Date'                                                                |
+| description          | description        | TextField          | blank=True, verbose_name='Event Description'                                             |
+| available_spots      | available_spots    | PositiveIntegerField | default=30, verbose_name='Available Spots'                                             |
+| image                | image              | ImageField         | blank=True, verbose_name='Image'                                                         |
+| calculate_available_spots | calculate_available_spots | Property      | Calculates available spots considering existing reservations                      |
+---
+
+**`restaurant_reservation`**
+
+The `restaurant_reservation` model represents reservations made by users for restaurant events.
+
+Fields:
+* `number_of_friends`: The number of friends accompanying the user.
+* `event`: A foreign key to the associated event.
+* `user`: A foreign key to the user making the reservation.
+
+
+| Name                 | Database Key       | Field Type         | Validation                                                                               |
+| -------------------- | ------------------ | ------------------ | ---------------------------------------------------------------------------------------- |
+| number_of_friends    | number_of_friends  | PositiveIntegerField | default=0, validators=[MaxValueValidator(30)]                                          |
+| event                | event              | ForeignKey         | to='restaurant_event', on_delete=models.CASCADE, related_name='reservations'             |
+| user                 | user               | ForeignKey         | to=User, on_delete=models.CASCADE                                                        |
+---
+
+**`menu`**
+
+The `menu` model represents items available in the restaurant's menu.
+
+Fields:
+* `name`: The name of the menu item.
+* `description`: A text field describing the item.
+* `price`: The price of the item.
+* `category`: The category of the item (food or drinks).
+
+
+| Name                 | Database Key       | Field Type         | Validation                                                                               |
+| -------------------- | ------------------ | ------------------ | ---------------------------------------------------------------------------------------- |
+| name                 | name               | CharField          | max_length=100, verbose_name='Item Name'                                                 |
+| description          | description        | TextField          | blank=True, verbose_name='Item Description'                                              |
+| price                | price              | DecimalField       | max_digits=10, decimal_places=2                                                          |
+| category             | category           | CharField          | max_length=10, choices=CATEGORY_CHOICES, default=FOOD, verbose_name='Item Category'      |
+---
+
+**`review`**
+
+The `review` model represents user reviews for the restaurant.
+
+Fields:
+* `user`: A foreign key to the user who wrote the review.
+* `review_text`: The text of the review.
+* `pub_date`: The date and time when the review was published.
+
+| Name                 | Database Key       | Field Type         | Validation                                                                               |
+| -------------------- | ------------------ | ------------------ | ---------------------------------------------------------------------------------------- |
+| user                 | user               | ForeignKey         | to=User, on_delete=models.CASCADE                                                        |
+| review_text          | review_text        | TextField          | blank=False                                                                              |
+| pub_date             | pub_date           | DateTimeField      | auto_now_add=True                                                                        |
+---
+
 ## Bugs
 
 ### Solved Bugs
@@ -173,7 +253,7 @@ Please visit [this link](DEPLOYMENT.md) to find deployment-related documentation
 
 The issue stemmed from the fact that I used Bootstrap 5 in my base.html and when I initially Googled Bootstrap modals unfortunately the first result was the documentation for Bootstrap 4 which was the syntax I was trying to use in my code. This syntax did indeed not have the **bs** attribute as mentioned in the Stack Overflow answer.
 
-It was my fault that I had not checked the version of the modal. Good news is that
+It was my fault that I had not checked the version of the modal. The good news is that
 when I changed to v.5 for the modal documentation in Bootstrap, (the version of Bootstrap that I used in my base.html) The modal would work as expected.
 
 This situation served as a valuable lesson in staying up-to-date with framework changes.
@@ -182,20 +262,20 @@ This situation served as a valuable lesson in staying up-to-date with framework 
 ### Unsolved Bugs
 **Edit Reservation Issue:** I encountered an unresolved bug related to the Reservation feature, and I'd like to share my experience with it. Unfortunately, due to time constraints during the project, I wasn't able to fully implement all aspects of CRUD functionality in this area.
 
-The specific issue is the process of editing reservations. The original intention was for the reservation edit form to be prepopulated with the user's existing reservation details. This included accounting for the number of spots reserved and making sure they were correctly updated in the available spots count. For instance, if there were initially 10 available spots and a user reserved 5 spots, there should have been 5 spots remaining. If the user then attempted to edit their reservation by increasing the number of spots, the intention was to restore the originally reserved spots back to the available count (so that it's back to 10 in this example).
+The specific issue is the process of editing reservations. The original intention was for the reservation edit form to be prepopulated with the user's existing reservation details. This included accounting for the number of spots reserved and making sure they were correctly updated in the available spots count. For instance, if there were initially 10 available spots and a user reserved 5 spots, there should have been 5 spots remaining. If the user then attempted to edit their reservation by increasing the number of spots, the intention was to restore the originally reserved spots to the available count (so that it's back to 10 in this example).
 This step was crucial to ensure a proper user experience. For instance, if a user had initially booked 5 spots but then decided to edit the reservation to increase the number of spots to 6, without restoring their originally reserved spots, the system would incorrectly show the event as fully booked even though there were spots available.
 
 Despite multiple days attempting, I struggled to accurately incorporate this aspect of CRUD functionality. The challenge stemmed from various factors, including potential changes in the available spots due to other users reserving spots in the same event, making it difficult to track and manage the correct spot count for editing reservations.
 
-Now, I had to make a tough decision. The only solution left was to cancel a user's existing reservation and guide them back to the event reservation form, where they could see the updated available spots count and make a totally new booking. While this solution definetely is not ideal, I made sure to include clear and important messages throughout the  edit reservation process to guide users and provide them with the best experience possible.
+Now, I had to make a tough decision. The only solution left was to cancel a user's existing reservation and guide them back to the event reservation form, where they could see the updated available spots count and make a new booking. While this solution is not ideal, I made sure to include clear and important messages throughout the edit reservation process to guide users and provide them with the best experience possible.
 
-I feel deeply dissapointed that I couldn't fully address this issue within the given timeframe.
+I feel deeply disappointed that I couldn't fully address this issue within the given timeframe.
 
 ---
 
 ## Features left to implement
 
-* Implement the "U" in CRUD for reservations, as mentioned in bugs section [here](#unsolved-bugs).
+* Implement the "U" in CRUD for reservations, as mentioned in the bugs section [here](#unsolved-bugs).
 
 * Allow authenticated users to filter the "Reviews" page to see their previous reviews.
 
@@ -305,6 +385,6 @@ All images were sourced from [Pexels](https://www.pexels.com).
 
 ### Content:
 
-[This](https://www.coastlinenservices.com/blog/vegetarian-and-vegan-menu-options/) blog is where the menus food titles were taken from. 
+[This](https://www.coastlinenservices.com/blog/vegetarian-and-vegan-menu-options/) blog is where the menus' food titles were taken from. 
 
 ---
