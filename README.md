@@ -149,6 +149,12 @@ For the paragraphs I used Open Sans Medium 500 Italic.
 
 ---
 
+## Testing
+
+Please visit [this link](TESTING.md) to find test-related documentation.
+
+---
+
 ## Deployment
 
 Please visit [this link](DEPLOYMENT.md) to find deployment-related documentation.
