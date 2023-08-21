@@ -74,9 +74,25 @@
 | Login and access "Join The Fun" | Log in and click on "Join The Fun" button on an event. | The reservation form should appear, allowing the user to insert the number of spots. | Yes | Yes |
 | Login and access "Write a Review" | Log in and click on "Write a Review" button. | The user should be redirected to the review form. | Yes | Yes |
 | Logout after logging in | Log in and click "Logout" button. | User should be redirected to the main page with non-authenticated access. | Yes | Yes |
----
+
 
 **Important Note:**
 As a non-authenticated user, I attempted to access various pages and features that are intended only for certain users or authenticated users, using direct URL inputs. During these tests, I was promptly redirected to the login page, ensuring security.
+
+---
+
+### Testing responsiveness
+
+**I tested all pages on the website using [Google Dev Tools](https://developer.chrome.com/docs/devtools/) by dragging the viewport back and forth and by simulating different built-in devices. This process provided valuable insights during development, which led me to implement specific media queries to ensure a seamless user experience across all devices.**
+
+![dev-tools](documentation/testing/responsiveness-testing.png)
+
+---
+
+
+### Testing accessibility and performance
+**I tested all pages on the website using [Google Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=sv) to make sure that the website is performing well and that it is accessible.**
+
+![lighthouse](documentation/testing/perfor-access-testing.png)
 
 ---
