@@ -126,14 +126,6 @@ p {
 }
 
 /* Menu page */
-.menu {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin: 50px;
-    margin-bottom: 0;
-}
-
 .fw-bold {
     font-size: 30px;
 }
