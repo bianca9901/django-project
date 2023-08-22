@@ -4,8 +4,8 @@
 <!--Events Page-->
 
 <div class="container">
-    </br>
-    </br>
+    <br>
+    <br>
     <h2> Events </h2>
 
     <p class="text-center"> We have a talented lineup of musicians, spanning
@@ -13,7 +13,7 @@
     </p>
     <p class="text-center"> We also offer different activities for you to partake in. Each week at Django is different,
         from lively karaoke sessions to spirited rounds of beer pong. Take a look and Join!</p>
-    </br>
+    <br>
     <p class="important-note text-center"> Please keep in mind: If you are not interested in participating in
         competitions (such as beerpong, chess etc), we encourage you to come and share the excitement!
         No need to reserve a spot.
@@ -28,7 +28,8 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ event.name }}</h5>
                     <p class="card-text">Date: <span class="custom-color-gold">{{ event.event_date }}</span></p>
-                    <p class="card-text">Available Spots: <span class="custom-color-gold">{{event.available_spots}}</span>                        
+                    <p class="card-text">Available Spots: <span
+                            class="custom-color-gold">{{event.available_spots}}</span>
                     </p>
                     <div class="set-height">
                         <p class="card-text">{{ event.description }}</p>
@@ -37,7 +38,7 @@
                         <img src="{{ event.image.url }}" alt="{{ event.name }}" class="img-fluid">
                         {% endif %}
                     </div>
-                    <br /><br /><br />
+                    <br><br><br>
                     <!--Join button-->
                     <div class="join-btn">
                         <a href="{% url 'make_reservation' event.id %}" class="btn btn-success">Join The Fun!</a>

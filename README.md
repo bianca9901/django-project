@@ -18,8 +18,6 @@
 
 * **Share your experience:** Your feedback is valuable! You can always leave a review to share your thoughts and help us improve. Don’t worry if you want to edit or delete your review(s) later, you can always access and manage them.
 
-![Different screens](documentation/different-screens.png)
-
 ---
 
 ## User Stories

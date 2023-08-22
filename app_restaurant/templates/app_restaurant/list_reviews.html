@@ -4,8 +4,8 @@
 <!--Reviews Page-->
 
 <div class="container">
-    </br>
-    </br>
+    <br>
+    <br>
     <h2> Reviews </h2>
 
     <div class="p-3 border rounded d-flex flex-column justify-content-center align-items-center">
@@ -25,9 +25,9 @@
             <div class="col-md-4 mb-3">
                 <div class="p-3 border rounded">
                     <p>By <strong>{{ review.user.username }}</strong></p>
-                    <br />
+                    <br>
                     <p> - {{ review.review_text }} </p>
-                    <br />
+                    <br>
                     <p><small>Posted on <span class="custom-color-gold">{{ review.pub_date }}</span></small></p>
                     <!--Makes Delete & Edit button visible and available if the review was written by the currently logged in user-->
                     {% if user.is_authenticated and user == review.user %}
