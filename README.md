@@ -439,3 +439,12 @@ All images were sourced from [Pexels](https://www.pexels.com).
 [This](https://www.coastlinenservices.com/blog/vegetarian-and-vegan-menu-options/) blog is where the menus' food titles were taken from. 
 
 ---
+
+## Acknowledgments
+* I want to say thank you to my family, for cheering me on and giving me motivation!
+
+* Thank you [Iuliia Konovalova](https://github.com/IuliiaKonovalova), for always giving me valuable feedback and support!
+
+* Thank you [Code Institute](https://codeinstitute.net), for great learning material!
+
+---

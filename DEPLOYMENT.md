@@ -1,7 +1,7 @@
 ## Deployment
 
 
-### Image handler
+### Image Handler
 
 **Important note:** These steps might not be necessary if you're solely interested in local deployment. During local development, Djangos built-in system can manage your images. However, for Heroku an image handler is crucial to avoid broken images
 
@@ -19,7 +19,7 @@
 
 ---
 
-### Database deployment
+### Database Deployment
 
 **I used [elephantssql](https://www.elephantsql.com/). You can create an account [here](https://customer.elephantsql.com/signup)**
 
@@ -53,7 +53,7 @@
 
 ---
 
-## Local deployment
+## Local Deployment
 
 **Step 1:** Clone this repository.
 

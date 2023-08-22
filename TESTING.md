@@ -6,19 +6,25 @@
 
 ![html validator](documentation/testing/html-testing.png)
 
+---
+
 ### CSS
+
 **CSS was validated at the official [Jigsaw](https://jigsaw.w3.org/css-validator/) website and no errors were found.**
 
 ![css validator](documentation/testing/css-testing.png)
 
+---
+
 ### Python
+
 **Python code was checked at the official [Code Institute](https://pep8ci.herokuapp.com) pep8 validator and no errors were found.**
 
 ![python validator](documentation/testing/python-testing.png)
 
 ---
 
-### Testing Events:
+### Testing Events functionality:
 
 | Test | Steps | Expected Result | Tested | Passed |
 | --- | --- | --- | --- | --- |
@@ -40,7 +46,7 @@
 ---
 
 
-### Testing Reviews:
+### Testing Reviews functionality:
 
 | Test | Steps | Expected Result | Tested | Passed |
 | ---- | ----- | --------------- | ------ | ------ |
@@ -57,7 +63,8 @@
 ---
 
 
-### Testing authentication:
+### Testing Authentication functionality:
+
 | Test | Steps | Expected Result | Tested | Passed |
 | ---- | ----- | --------------- | ------ | ------ |
 | Access "My Events" without logging in | Try to access the "My Events" page without logging in. | Not a available navbar item for not authenticated users. | Yes | Yes |
@@ -81,7 +88,7 @@ As a non-authenticated user, I attempted to access various pages and features th
 
 ---
 
-### Testing responsiveness
+### Testing Responsiveness
 
 **I tested all pages on the website using [Google Dev Tools](https://developer.chrome.com/docs/devtools/) by dragging the viewport back and forth and by simulating different built-in devices. This process provided valuable insights during development, which led me to implement specific styling choices to ensure a seamless user experience across all devices.**
 
@@ -90,7 +97,8 @@ As a non-authenticated user, I attempted to access various pages and features th
 ---
 
 
-### Testing accessibility and performance
+### Testing Accessibility and Performance
+
 **I tested all pages on the website using [Google Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=sv) to make sure that the website is performing well and that it is accessible.**
 
 ![lighthouse](documentation/testing/perfor-access-testing.png)
