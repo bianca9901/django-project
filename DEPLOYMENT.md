@@ -1,8 +1,9 @@
-## Pre-steps before Local and/or Heroku deployment
+## Deployment
+
 
 ### Image handler
 
-**Important note:** These steps might not be necessary if you're solely interested in local deployment. During local development, Djangos built-in system can manage your images. However, for Heroku an image handler is crucial to avoid broken images.
+**Important note:** These steps might not be necessary if you're solely interested in local deployment. During local development, Djangos built-in system can manage your images. However, for Heroku an image handler is crucial to avoid broken images
 
 **If you don't have an image handler already, I recommend [Cloudinary](https://cloudinary.com/). Create an account [here](https://cloudinary.com/users/register_free)**
 
@@ -16,12 +17,11 @@
 
 *Everything is done in Cloudinary. Now, save the API Environment variable you copied somewhere safe.*
 
-### Database
+---
 
-**Important note:** These steps might not be necessary if you're solely interested in local deployment. During local development, Django uses a default SQLite database to manage your data. However, for Heroku you will need to set up a database.
+### Database deployment
 
-**If you don't have a database already, I recommend  [elephantssql](https://www.elephantsql.com/).
-Create an account [here](https://customer.elephantsql.com/signup)**
+**I used [elephantssql](https://www.elephantsql.com/). You can create an account [here](https://customer.elephantsql.com/signup)**
 
 <u>After</u>  creating an account, follow these steps:
 

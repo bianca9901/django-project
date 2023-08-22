@@ -22,7 +22,55 @@
 
 ---
 
-## Pages
+## User Stories
+
+### Menu
+
+* As a **site user,** I want to discover the menu so that I can decide what dishes to try in advance.
+
+* As an **admin,** I want to add, update, and delete menu items so that I can easily inform guests about their options.
+
+
+### Events 
+* As a **site user,** I want to see the offered events so that I can learn more and potentially attend.
+
+* As a **site user,** I want to make reservations for events so that I can secure my spot.
+
+* As a **site user,** I want to stay updated about new events so that I can explore new ones that interest me.
+
+* As a **site user,** I want to manage my event bookings on the website so that I don’t need to contact the restaurant.
+
+* As a **site user,** I want to know if there has been an decrease in the available spots for an event I am attending so that I know how many people there will be.
+
+* As an **admin,** I want to add, update, and delete events so that I can easily inform guests about their options.
+
+* As an **admin,** I want to see guest reservations from the dashboard so that I can easily prepare staff for the event demand.
+
+* As an **admin,** I want to create, read, update, and delete restaurant reservations made by users so that I can update the website if calls or emails have been made that need to be reflected on the website.
+
+### Reviews
+
+* As a **site user,** I want to read others reviews so that I can get honest opinions about the restaurant.
+
+* As a **site user,** I want to leave a review so that I can inform others.
+
+* As a **site user,** I want to delete or edit my reviews so that I can adjust my feedback based on evolving experiences.
+
+* As an **admin,** I want to manage reviews from the dashboard so that inappropriate reviews do not stay on the website.
+
+### General
+
+* As a **site user,** I want to see imagery of the restaurant so that I can get a visual feel.
+
+* As a **site user,** I want to find the restaurant's location so that I know where to go.
+
+* As a **site user,** I want to learn more about the restaurant's staff so that I know who they are.
+
+* As a **site user,** I want to find the restaurant's contact information so that I can contact them.
+
+---
+
+## Features
 
 ### Home Page
 
@@ -62,19 +110,17 @@
 ### Reviews Page
 **Displays all guest reviews.**
 
-![Grey](documentation/pages/reviews.png)
+![Reviews](documentation/pages/reviews.png)
 
 ### Review Form
 **Displays textbox that allows users to write and submit their reviews.**
 
-![Grey](documentation/pages/review-form.png)
+![Review form](documentation/pages/review-form.png)
 
 ### Edit Review Form
 **Displays prepopulated textbox with previously written review text.**
 
-![Grey](documentation/pages/edit-review-form.png)
-
-*ps. login, logout, registration, error404, and error500 templates are not included. Please visit the website link here.*
+![Edit review](documentation/pages/edit-review-form.png)
 
 ---
 
@@ -241,6 +287,13 @@ Fields:
 | pub_date             | pub_date           | DateTimeField      | auto_now_add=True                                                                        |
 ---
 
+### models.py
+
+![model1 database schema](documentation/data-schema/model-table1.png)
+![model2 database schema](documentation/data-schema/model-table2.png)
+
+---
+
 ## Bugs
 
 ### Solved Bugs
@@ -283,7 +336,7 @@ I feel deeply disappointed that I couldn't fully address this issue within the g
 
 * Ensure consistent image sizes on the "Events" page to enhance UX.
 
-* Add a favicon
+* Add a Favicon
 
 ----
 

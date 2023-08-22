@@ -4,7 +4,7 @@ from django.core.validators import MaxValueValidator
 
 
 class restaurant_event(models.Model):
-    """
+    """´
     Represents details about the event.
     """
     name = models.CharField('Event Name', max_length=100)

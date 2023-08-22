@@ -83,7 +83,7 @@ As a non-authenticated user, I attempted to access various pages and features th
 
 ### Testing responsiveness
 
-**I tested all pages on the website using [Google Dev Tools](https://developer.chrome.com/docs/devtools/) by dragging the viewport back and forth and by simulating different built-in devices. This process provided valuable insights during development, which led me to implement specific media queries to ensure a seamless user experience across all devices.**
+**I tested all pages on the website using [Google Dev Tools](https://developer.chrome.com/docs/devtools/) by dragging the viewport back and forth and by simulating different built-in devices. This process provided valuable insights during development, which led me to implement specific styling choices to ensure a seamless user experience across all devices.**
 
 ![dev-tools](documentation/testing/responsiveness-testing.png)
 
