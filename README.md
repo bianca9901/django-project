@@ -2,6 +2,8 @@
 
 ![Logo](documentation/about/logo.png)
 
+You can explore the website by visiting it [here](https://project-django-f26379546de6.herokuapp.com/).
+
 ## About
 
 #### Django is a fictional restaurant that not only offers delicious food but also engaging events for its users to partake in.
